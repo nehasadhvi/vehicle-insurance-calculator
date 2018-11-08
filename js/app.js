@@ -145,9 +145,20 @@ HTMLUI.prototype.showResults = (price, insurance) => {
         <p>Level: ${insurance.levelVal}</p>
         <p class="total">Total: $ ${price}</p>
         `;
+    
     const preResult = document.querySelector("#result div");
+    //Remove the previous summary block, if exists
     if (preResult != null) {
         preResult.remove();
     }
-    result.appendChild(div);
+
+    const spinner = document.querySelector("#loading img");
+    spinner.style.display = 'block';
+
+    setTimeout(() => {
+        spinner.style.display = 'none';
+
+        //Display the new summary block
+        result.appendChild(div);
+    }, 2000);
 }
