@@ -142,15 +142,12 @@ HTMLUI.prototype.showResults = (price, insurance) => {
         <p class="header"> Summary </p>
         <p>Make: ${makeVal}</p>
         <p>Year: ${insurance.yearVal}</p>
-        <p>Level: ${insurance.yearVal}</p>
+        <p>Level: ${insurance.levelVal}</p>
         <p class="total">Total: $ ${price}</p>
         `;
-
-    // if (document.getElementById('result').contains("div")) {
-        // result.querySelector('.total').remove();
-        result.appendChild(div);
-    // } else {
-        // result.appendChild(div);
-    // } 
-
+    const preResult = document.querySelector("#result div");
+    if (preResult != null) {
+        preResult.remove();
+    }
+    result.appendChild(div);
 }
